@@ -9,14 +9,19 @@ router.get('/', function(req, res, next) {
 	console.log("get");
 });
 
-router.post('/', function(req, res, next) {
+router.post('/thermal', function(req, res, next) {
 	res.json({data: "good"});
 	seattable = req.body.seat;
 	console.log(seattable);
-	number = number + 1;
-	console.log("post");
+	console.log("post: seattable");
 });
 
+router.post('/ir', function(req, res, next) {
+	res.json({data: "good"});
+	number = req.body.count;
+	console.log(number);
+	console.log("post: number");
+});
 router.post('/getdata', function(req, res, next) {
 	res.json({number: number, seattable: seattable});
 	console.log("getdata");

@@ -1,10 +1,5 @@
 $(function () {
 
-    /*
-    setTimeout(function () {
-        c2.innerHTML = 21;
-	}, 100);
-	*/
     getdata();
 
     function getdata() {
@@ -17,14 +12,17 @@ $(function () {
 
             // check the seat is been seated
             for (var i = 1; i <= 8; i++) {
-                if(data["seattable"][i-1] == 1){
-                    $("#s"+i).addClass("unavailable");
+                if (data["seattable"][i - 1] == 1) {
+                    $("#s" + i).css("background-image", "url(s2.png)");
+                } 
+                else {
+                    $("#s" + i).css("background-image", "url(s1.png)");
                 }
             }
         });
 
         setTimeout(function () {
             getdata();
-        }, 1000);
+        }, 100);
     }
 });
