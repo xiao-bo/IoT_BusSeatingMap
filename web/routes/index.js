@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	//res.json({data: "good"});
+	res.json({data: "good"});
 	seattable = req.body.seat;
 	console.log(seattable);
 	number = number + 1;
