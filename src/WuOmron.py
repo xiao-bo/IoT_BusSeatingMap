@@ -3,43 +3,73 @@ from Pi_Omrond6t import OmronD6T # on Pi
 import sys
 from twisted.internet import reactor
 from udpwkpf import WuClass, Device
-
+import time
+import socket
+from bitarray import bitarray
 
 if __name__ == "__main__":
-	class OmronIRSensor(WuClass):
+	class Thermal_sensor(WuClass):
 		def __init__(self):
 			WuClass.__init__(self)
-			self.loadClass('OmronIRSensor')
+			self.loadClass('Thermal_sensor')
 			self.omron = OmronD6T()			# on Pi
-			self.processor = IRCameraData()		# on computer
-			#self.counter = 0
+			#self.processor = IRCameraData((0,0,400,400),(15,12,0,3))		# on computer
 
+			#self.counter = 0
+                        self.seat=bitarray('0000')
+
+                        ##debug message
+                        #self.s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+                        #self.s.connect(('10.1.2.13',9634))
 		def update(self, obj, pID=None, val=None):
 			self.get_data()
-			message = '' + str(self.processor.roughDensity) + str(self.processor.currentAvgSpeed)
-			obj.setProperty(0, message)
-			#self.counter = (self.counter + 1) % 10
+                        #obj.setProperty(0, message)
+                        self.seat=bitarray('0000')
+                        Threshold=obj.getProperty(1)
+                        Threshold=30
+                        if self.omron.temperature[0]>Threshold :
+                            self.seat=self.seat | bitarray('1000')
+                            print "1"
+                        if self.omron.temperature[3]>Threshold:
+                            self.seat=self.seat | bitarray('0100')
+                            print "2"
+                        if self.omron.temperature[12]>Threshold:
+                            self.seat=self.seat | bitarray('0010')
+                            print "3"
+                        if self.omron.temperature[15]>Threshold:
+                            self.seat=self.seat | bitarray('0001')
+                            print "4"
+                        print self.seat
 
+                        ## change bit into int
+                        seatInt=0
+                        for bit in self.seat:
+                            seatInt = (seatInt<<1)|bit
+                        ##
+                        print seatInt
+                        obj.setProperty(0,seatInt)
 		def get_data(self):
-			self.omron.read()  			# on Pi
-			data_in = [0]
-			data_in.extend(self.omron.temperature)
-			self.processor.data = data_in		# on computer
-			self.processor.calibrate_min_max()
-			if self.processor.foreignObject.__len__() == 0:
-				self.processor.past_frame_sample_mean()
-			self.processor.foreign_object_detection()
-			try:  # TODO fix this, error when attempting to process multiple people
-				self.processor.route()
-			except IndexError:
-				pass
+
+                        ## debug message
+			#start=time.time()
+                        ## debug 
+
+                        self.omron.read()  			# on Pi
+                        
+                        ## debug message
+                        #end=time.time()
+                        #self.s.send('{},{},'.format(end-start,self.omron.temperature))
+                        
+                        ##debug message 
+                        #print self.omron.temperature
+                        #print self.omron.temperature[0]
 
 	class MyDevice(Device):
 		def __init__(self, addr, localaddr):
 			Device.__init__(self, addr, localaddr)
 
 		def init(self):
-			cls = OmronIRSensor()
+			cls = Thermal_sensor()
 			self.addClass(cls, 0)
 			self.addObject(cls.ID)
 
