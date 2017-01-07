@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		// Bootstrap
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		// odometer js
+		script(type='text/javascript', src='odometer/odometer.js')
+		link(rel='stylesheet', href='odometer/odometer-theme-default.css')
+		// custom css
+		link(rel='stylesheet', href='seat.css')
+		// custom js
+		script(type='text/javascript', src='seat.js')
+
+	body
+		.container
+			.row
+				#seat-table.col-sm-9
+					#driver
+						p#p1 駕
+						p#p2 駛
+					#s1.seat.unavailable
+						p 01
+					#s2.seat
+						p 02
+					#s3.seat
+						p 03
+					#s4.seat
+						p 04
+					#s5.seat
+						p 05
+				#counter.col-sm-3
+					p#c1 剩餘座位數量
+					p#c2.odometer 23
+						p#c3 人
+
