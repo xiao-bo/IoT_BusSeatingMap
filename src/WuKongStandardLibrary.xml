@@ -292,17 +292,16 @@
         <property name="output_boolean" access="readonly" datatype="boolean" default="false" />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
     </WuClass>
-	<WuClass name="Thermal_sensor" id="1980" virtual="false" type="hard">
-	    <property name="seatTable" access="readonly" datatype="short" default="0" />
-		<property name="Threshold" access="readwrite" datatype="short" default="30" />
-		<property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
-	</WuClass>
-	<WuClass name="Seat" id="1017" virtual="false" type="hard">
-		<property name="index" access="readwrite" datatype="short" default="0"  />
-		<property name="index2" access="readwrite" datatype="short" default="0"  />
-		<property name="sum" access="readonly" datatype="short" default="0"  />
-		<property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
-	</WuClass>
+    <WuClass name="SeatTable" id="1933" virtual="false" type="hard">
+        <property name="index" access="writeonly" datatype="short" default="0" />
+        <property name="index2" access="writeonly" datatype="short" default="0" />
+        <property name="sum" access="readwrite" datatype="short" default="0" />
+        <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
+    </WuClass>
+    <WuClass name="Thermal_sensor" id="1934" virtual="false" type="hard">
+        <property name="seat" access="readwrite" datatype="short" default="0" />
+        <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="50"  />
+    </WuClass>
 
     <!-- Actuators -->
     <WuClass name="Light_Actuator" id="2001" virtual="false" type="hard">
