@@ -292,6 +292,7 @@
     </WuClass>
     <WuClass name="Thermal_sensor" id="1980" virtual="false" type="hard">
         <property name="seatTable" access="readonly" datatype="short" default="0" />
+        <property name="Threshold" access="readwrite" datatype="short" default="30" />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
     </WuClass>
     <WuClass name="Seat" id="1017" virtual="false" type="hard">
