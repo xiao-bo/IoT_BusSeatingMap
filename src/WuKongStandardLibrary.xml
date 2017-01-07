@@ -207,7 +207,7 @@
         <property name="current_value" access="readonly" datatype="short"  />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="1000"  />
     </WuClass>
-    <WuClass name="Touch_Pad" id="1015" virtual="false" type="hard" privateCData="bool">
+    <WuClass name="Touch_Sensor" id="1015" virtual="false" type="hard" privateCData="bool">
         <property name="current_value" access="readwrite" datatype="boolean" default="false"  />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
     </WuClass>
@@ -216,15 +216,17 @@
         <property name="mode" access="readwrite" datatype="boolean" default="false"  />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
     </WuClass>
-    <WuClass name="SeatCounter" id="1017" virtual="false" type="hard">
-        <property name="index" access="writeonly" datatype="short" default="0"  />
-        <property name="index2" access="writeonly" datatype="short" default="0"  />
-        <property name="sum" access="readonly" datatype="short" default="0"  />
+    <WuClass name="Counter" id="1017" virtual="false" type="hard">
+        <property name="index" access="readwrite" datatype="short" default="0"  />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
     </WuClass>
     <WuClass name="Smoke_Sensor" id="1018" virtual="false" type="hard">
         <property name="alarm" access="readwrite" datatype="boolean" default="false"  />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
+    </WuClass>
+    <WuClass name="Ir" id="1019" virtual="false" type="hard">
+        <property name="current_value" access="readonly" datatype="short"  />
+        <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="500"  />
     </WuClass>
 
     <WuClass name="Binary_TestSensor" id="1901" virtual="false" type="hard">
@@ -290,24 +292,23 @@
         <property name="output_boolean" access="readonly" datatype="boolean" default="false" />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
     </WuClass>
-    <WuClass name="Thermal_sensor" id="1980" virtual="false" type="hard">
-        <property name="seatTable" access="readonly" datatype="short" default="0" />
-        <property name="Threshold" access="readwrite" datatype="short" default="30" />
-        <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
-    </WuClass>
-    <WuClass name="Seat" id="1017" virtual="false" type="hard">
-        <property name="index" access="readwrite" datatype="short" default="0"  />
-        <property name="index2" access="readwrite" datatype="short" default="0"  />
-        <property name="sum" access="readonly" datatype="short" default="0"  />
-        <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
-    </WuClass>
-
+	<WuClass name="Thermal_sensor" id="1980" virtual="false" type="hard">
+	    <property name="seatTable" access="readonly" datatype="short" default="0" />
+		<property name="Threshold" access="readwrite" datatype="short" default="30" />
+		<property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
+	</WuClass>
+	<WuClass name="Seat" id="1017" virtual="false" type="hard">
+		<property name="index" access="readwrite" datatype="short" default="0"  />
+		<property name="index2" access="readwrite" datatype="short" default="0"  />
+		<property name="sum" access="readonly" datatype="short" default="0"  />
+		<property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100" />
+	</WuClass>
 
     <!-- Actuators -->
     <WuClass name="Light_Actuator" id="2001" virtual="false" type="hard">
         <property name="on_off" access="readwrite" datatype="boolean" default="false"  />
     </WuClass>
-    <WuClass name="LED_stripe" id="2002" virtual="false" type="hard" privateCData="bool">
+    <WuClass name="LED" id="2002" virtual="false" type="hard" privateCData="bool">
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="1000"  />
         <property name="port1" access="readwrite" datatype="boolean" default="true"  />
         <property name="port2" access="readwrite" datatype="boolean" default="true"  />
@@ -502,7 +503,7 @@
     <WuClass name="Intel_Sound" id="2037" virtual="false" type="hard">
         <property name="on_off" access="writeonly" datatype="boolean"  />
     </WuClass>
-    <WuClass name="LED_Pattern" id="2038" virtual="false" type="hard">
+    <WuClass name="Pattern" id="2038" virtual="false" type="hard">
         <property name="index" access="writeonly" datatype="short"  />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="50"  />
     </WuClass>
