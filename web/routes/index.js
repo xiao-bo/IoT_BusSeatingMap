@@ -1,23 +1,25 @@
 var express = require('express');
 var router = express.Router();
 
+var number = 0;
+var seattable = [0, 0, 0, 0, 0, 0, 0, 0];
+
 router.get('/', function(req, res, next) {
-	res.render('seat', { data: 'get'});
+	res.render('seat', {number: number});
 	console.log("get");
 });
 
 router.post('/', function(req, res, next) {
-	res.render('seat', { data: 'post'});
-	console.log(req.body.key1[2]);
+	res.json({data: "good"});
+	seattable = req.body.seat;
+	console.log(seattable);
+	number = number + 1;
 	console.log("post");
 });
 
-/*
-// GET home page.
-router.get('/', function(req, res, next) {
-	res.render('index', { title: 'Express', data: req});
-	console.log("good");
+router.post('/getdata', function(req, res, next) {
+	res.json({number: number, seattable: seattable});
+	console.log("getdata");
 });
-*/
 
 module.exports = router;
