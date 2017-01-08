@@ -295,6 +295,7 @@
     <WuClass name="SeatTable" id="1933" virtual="false" type="hard">
         <property name="index" access="writeonly" datatype="short" default="0" />
         <property name="index2" access="writeonly" datatype="short" default="0" />
+        <property name="index3" access="writeonly" datatype="short" default="0" />
         <property name="sum" access="readwrite" datatype="short" default="0" />
         <property name="refresh_rate" access="readwrite" datatype="refresh_rate" default="100"  />
     </WuClass>
