@@ -16,11 +16,12 @@ if __name__ == "__main__":
                         #self.s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
                         #self.s.connect(('10.1.2.13',9634))
 		def update(self, obj, pID=None, val=None):
-                        index1=obj.getProperty(0)
-                        #index2=obj.getProperty(1)
+                        index0=obj.getProperty(0)
+                        index1=obj.getProperty(1)
+                        index2=obj.getProperty(2)
                         tmp=[]
-                        Sum = index1
-                        for x in range(0,8):
+                        Sum = index0+index1+index2
+                        for x in range(0,12):
                             tmp.append(Sum%2)
                             Sum=Sum/2
                         bit=list(reversed(tmp))
