@@ -16,7 +16,7 @@ if __name__ == "__main__":
 			#self.processor = IRCameraData((0,0,400,400),(15,12,0,3))		# on computer
 
 			#self.counter = 0
-                        self.seat=bitarray('0000')
+                        self.seat=bitarray('000000000000')
 
                         ##debug message
                         #self.s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -24,29 +24,29 @@ if __name__ == "__main__":
 		def update(self, obj, pID=None, val=None):
 			self.get_data()
                         #obj.setProperty(0, message)
-                        self.seat=bitarray('0000')
+                        self.seat=bitarray('000000000000')
                         Threshold=obj.getProperty(1)
-                        Threshold=30
-                        if self.omron.temperature[0]>Threshold :
-                            self.seat=self.seat | bitarray('1000')
+                        Threshold=28
+                        if self.omron.temperature[10]>Threshold :
+                            self.seat=self.seat | bitarray('100000000000')
                             print "1"
-                        if self.omron.temperature[3]>Threshold:
-                            self.seat=self.seat | bitarray('0100')
+                        if self.omron.temperature[9]>Threshold:
+                            self.seat=self.seat | bitarray('010000000000')
                             print "2"
-                        if self.omron.temperature[12]>Threshold:
-                            self.seat=self.seat | bitarray('0010')
+                        if self.omron.temperature[6]>Threshold:
+                            self.seat=self.seat | bitarray('001000000000')
                             print "3"
-                        if self.omron.temperature[15]>Threshold:
-                            self.seat=self.seat | bitarray('0001')
+                        if self.omron.temperature[5]>Threshold:
+                            self.seat=self.seat | bitarray('000100000000')
                             print "4"
-                        print self.seat
+                        #print self.seat
 
                         ## change bit into int
                         seatInt=0
                         for bit in self.seat:
                             seatInt = (seatInt<<1)|bit
                         ##
-                        print seatInt
+                        #print seatInt
                         obj.setProperty(0,seatInt)
 		def get_data(self):
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
                         #self.s.send('{},{},'.format(end-start,self.omron.temperature))
                         
                         ##debug message 
-                        #print self.omron.temperature
+                        print self.omron.temperature
                         #print self.omron.temperature[0]
 
 	class MyDevice(Device):
