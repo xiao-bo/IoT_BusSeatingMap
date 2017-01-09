@@ -19,6 +19,107 @@ body {
     position: absolute;
 }
 
+#door {
+    height: 70px;
+    width: 10px;
+    margin-top: 10px;
+    margin-left: -20px;
+    position: absolute;
+    background-color: black;
+}
+
+#arrow {
+    background-image: url(arrow.png);
+    height: 50px;
+    width: 140px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -50px;
+}
+
+#arrow p {
+    margin-top: -20px;
+    margin-left: 40px;
+    font-size: 24px;
+    color: red;
+    
+}
+
+.seat {
+    height: 70px;
+    width: 70px;
+    border-radius: 20px;
+    padding-top: 21px;
+    padding-left: 23px;
+    font-size: 20px;
+    position: absolute;
+    background-image: url(s1.png);
+}
+
+.unavailable {
+    background-image: url(s2.png);
+}
+
+#s1 {
+    margin-top: 65px;
+    margin-left: 150px;
+}
+
+#s2 {
+    margin-top: 65px;
+    margin-left: 230px;
+}
+
+#s3 {
+    margin-top: 160px;
+    margin-left: 150px;
+}
+
+#s4 {
+    margin-top: 160px;
+    margin-left: 230px;
+}
+
+#s5 {
+    margin-top: 65px;
+    margin-left: 310px;
+}
+
+#s6 {
+    margin-top: 65px;
+    margin-left: 390px;
+}
+
+#s7 {
+    margin-top: 160px;
+    margin-left: 310px;
+}
+
+#s8 {
+    margin-top: 160px;
+    margin-left: 390px;
+}
+
+#s9 {
+    margin-top: 65px;
+    margin-left: 470px;
+}
+
+#s10 {
+    margin-top: 65px;
+    margin-left: 550px;
+}
+
+#s11 {
+    margin-top: 160px;
+    margin-left: 470px;
+}
+
+#s12 {
+    margin-top: 160px;
+    margin-left: 550px;
+}
+
 #counter {
     padding-top: 150px;
     padding-left: 60px;
@@ -38,90 +139,4 @@ body {
     margin-top: -53px;
     margin-left: 120px;
     font-size: 24px;
-}
-
-.seat {
-    height: 70px;
-    width: 70px;
-    border-radius: 20px;
-    padding-top: 21px;
-    padding-left: 23px;
-    font-size: 20px;
-    position: absolute;
-}
-
-.unavailable {
-    opacity: 0.5;
-}
-
-#s1 {
-    background-image: url(s1.png);
-    margin-top: 65px;
-    margin-left: 150px;
-}
-
-#s2 {
-    background-image: url(s1.png);
-    margin-top: 65px;
-    margin-left: 230px;
-}
-
-#s3 {
-    background-image: url(s1.png);
-    margin-top: 160px;
-    margin-left: 150px;
-}
-
-#s4 {
-    background-image: url(s1.png);
-    margin-top: 160px;
-    margin-left: 230px;
-}
-
-#s5 {
-    background-image: url(s1.png);
-    margin-top: 65px;
-    margin-left: 310px;
-}
-
-#s6 {
-    background-image: url(s1.png);
-    margin-top: 65px;
-    margin-left: 390px;
-}
-
-#s7 {
-    background-image: url(s1.png);
-    margin-top: 160px;
-    margin-left: 310px;
-}
-
-#s8 {
-    background-image: url(s1.png);
-    margin-top: 160px;
-    margin-left: 390px;
-}
-
-#s9 {
-    background-image: url(s1.png);
-    margin-top: 65px;
-    margin-left: 470px;
-}
-
-#s10 {
-    background-image: url(s1.png);
-    margin-top: 65px;
-    margin-left: 550px;
-}
-
-#s11 {
-    background-image: url(s1.png);
-    margin-top: 160px;
-    margin-left: 470px;
-}
-
-#s12 {
-    background-image: url(s1.png);
-    margin-top: 160px;
-    margin-left: 550px;
 }

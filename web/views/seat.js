@@ -11,13 +11,15 @@ $(function () {
             c2.innerHTML = data["number"];
 
             // check the seat is been seated
-            for (var i = 1; i <= 8; i++) {
+            for (var i = 1; i <= 12; i++) {
                 if (data["seattable"][i - 1] == 1) {
-                    $("#s" + i).css("background-image", "url(s2.png)");
+                    $("#s" + i).addClass("unavailable");
                 } 
+                /*
                 else {
                     $("#s" + i).css("background-image", "url(s1.png)");
                 }
+                */
             }
         });
 
