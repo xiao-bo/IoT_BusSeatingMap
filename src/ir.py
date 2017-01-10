@@ -17,7 +17,9 @@ class Ir(WuClass):
         self.ir2_sensor_aio = pin_mode(Pin2, PIN_TYPE_ANALOG)
         self.temp1 = 0
         self.temp2 = 0
-        self.count = 8
+        self.f1 = 0
+        self.f2 = 0
+        self.count = 12
         print "Ir sensor init!"
 
     def update(self,obj,pID=None,val=None):
@@ -32,20 +34,24 @@ class Ir(WuClass):
 
             if ir1 > 250:
                 self.temp1 = ir1
+                self.f1 = 1+self.f2
             elif ir2 > 250:
                 self.temp2 = ir2
+                self.f2 = 1+self.f1
 
             if self.temp1 > 250 and self.temp2 > 250:
-                if self.temp1 > self.temp2:
+                if self.f2 > self.f1:
                     print "get on"
                     if self.count > 0: 
                         self.count = self.count - 1
-                elif self.temp1 < self.temp2:
+                elif self.f2 < self.f1:
                     print "get off"
-                    if self.count < 8:
+                    if self.count < 12:
                         self.count = self.count+1 
                 self.temp1 = 0
                 self.temp2 = 0
+                self.f1 = 0
+                self.f2 = 0
             else:
                 print "nobody"
                 print "number of people=%d" %(self.count)    
